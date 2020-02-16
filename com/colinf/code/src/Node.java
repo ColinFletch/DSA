@@ -21,12 +21,16 @@ public class LinkedList {
         }
         current.next = new Node(data);
     }
-    
+
     public void prepend(int data) {
         Node newHead = new Node(data);
         newHead.next = head;
         head = newHead;
         return;
+    }
+
+    public void deleteWithValue(int data){
+        
     }
 
 }
