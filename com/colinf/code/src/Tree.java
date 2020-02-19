@@ -24,7 +24,7 @@ class Node {
         if (value < data) {
             if (left == null) {
                 return false;
-            } else{
+            } else {
                 left.contains(value);
             }
         } else if (value > data) {
@@ -33,8 +33,16 @@ class Node {
             } else {
                 right.contains(value);
             }
-        } else {
-            return false;
+        }
+    }
+
+    public void inOrderTraversal() {
+        if (left != null) {
+            left.inOrderTraversal();
+        }
+        System.out.println(data);
+        if (right != null) {
+            right.inOrderTraversal();
         }
     }
 }
