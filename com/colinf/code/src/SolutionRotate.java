@@ -1,17 +1,17 @@
 package com.colinf.code.src;
 
 import java.io.*;
-import java.math.*;
-import java.security.*;
-import java.text.*;
 import java.util.*;
-import java.util.concurrent.*;
-import java.util.regex.*;
 
 public class SolutionRotate {
 
     // Complete the rotLeft function below.
     //Input arr[] = [1, 2, 3, 4, 5, 6, 7], d = 2, n =7
+    // Output arr = [3, 4, 5, 6, 7, 1, 2]
+    /* for(int i = 0; i < lengthOfArray; i++){
+    int newLocation = ([0]i + (lengthOfArray[7] - shiftAmount[2])) % lengthOfArray[7];
+    a[newLocation] = in.nextInt();
+} */
     static int[] rotLeft(int[] a, int d) {
         int[] tmp = new int[d];
         tmp = Arrays.copyOfRange(a, 0, d);
@@ -19,6 +19,18 @@ public class SolutionRotate {
             a[i] = a[i+d];
         }
         
+        int k = d - 1;
+        for (int j = a.length-1; j >= (a.length - d); j--){
+            a[j] = tmp[k];
+            k--;
+        }
+        return a;
+    }
+
+    public boolean rotateString(String A, String B) {
+        StringBuffer sb = new StringBuffer(A);
+        sb.append(A);
+        return (sb.toString().contains(B) && A.length() == B.length());
     }
 
     private static final Scanner scanner = new Scanner(System.in);
